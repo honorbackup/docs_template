@@ -3,88 +3,63 @@ layout: default
 title: Home
 nav_order: 1
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
-permalink: 
+permalink:
 mathjax: true.
 ---
 
-# Focus on writing good documentation
-{: .fs-9 }
+This is a fork of documentation template "Just the Docs" with MathJax support and a few changes.
 
-Just the Docs gives your documentation a jumpstart with a responsive Jekyll theme that is easily customizable and hosted on GitHub Pages.
-{: .fs-6 .fw-300 }
+## Usage
 
-[Get started now](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/pmarsceill/just-the-docs){: .btn .fs-5 .mb-4 .mb-md-0 }
+Just copy this repository to your project's `docs` directory and then set the publishing directory as docs from repository setting as explained in [github pages documents](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Everything is in place for github pages usage. However, in case this is how `GemFile` should look like:
 
----
+```ruby
+# frozen_string_literal: true
 
-## Getting started
+source "https://rubygems.org"
 
-### Dependencies
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-$$\sum_{i=0}^{N} \alpha \tag{1}$$
-
-$x$ Just the Docs is built for [Jekyll](https://jekyllrb.com), a static site generator. View the [quick start guide](https://jekyllrb.com/docs/) for more information. Just the Docs requires no special plugins and can run on GitHub Pages' standard Jekyll compiler. The [Jekyll SEO Tag plugin](https://github.com/jekyll/jekyll-seo-tag) is included by default (no need to run any special installation) to inject SEO and open graph metadata on docs pages. For information on how to configure SEO and open graph metadata visit the [Jekyll SEO Tag usage guide](https://jekyll.github.io/jekyll-seo-tag/usage/).
-
-### Quick start: Use as a GitHub Pages remote theme
-
-1. Add Just the Docs to your Jekyll site's `_config.yml` as a [remote theme](https://blog.github.com/2017-11-29-use-any-theme-with-github-pages/)
-```yaml
-remote_theme: pmarsceill/just-the-docs
+# gem "rails"
+gem "github-pages", group: :jekyll_plugins
+gem "jekyll-seo-tag", "~> 2.7"
 ```
-<small>You must have GitHub Pages enabled on your repo, one or more Markdown files, and a `_config.yml` file. [See an example repository](https://github.com/pmarsceill/jtd-remote)</small>
 
-### Local installation: Use the gem-based theme
+Finally, clear the `content` directory and add your own documentation. 
 
-1. Install the Ruby Gem
+## Local Installation with Bundler
+
+First, we need ruby for jekyll so check [here](https://jekyllrb.com/docs/installation/) for installation. We already have the `Gemfile` so no initialization is necessary.
+
+1. Set the installation directory as local
 ```bash
-$ gem install just-the-docs
+bundle config set --local path 'vendor/bundle'
 ```
-```yaml
-# .. or add it to your your Jekyll site’s Gemfile
-gem "just-the-docs"
-```
-2. Add Just the Docs to your Jekyll site’s `_config.yml`
-```yaml
-theme: "just-the-docs"
-```
-3. _Optional:_ Initialize search data (creates `search-data.json`)
+2. Install dependencies
 ```bash
-$ bundle exec just-the-docs rake search:init
+bundle install
 ```
-3. Run you local Jekyll server
+3. Serve the site locally
 ```bash
-$ jekyll serve
-```
-```bash
-# .. or if you're using a Gemfile (bundler)
-$ bundle exec jekyll serve
+bundle exec jekyll s
 ```
 4. Point your web browser to [http://localhost:4000](http://localhost:4000)
 
-If you're hosting your site on GitHub Pages, [set up GitHub Pages and Jekyll locally](https://help.github.com/en/articles/setting-up-your-github-pages-site-locally-with-jekyll) so that you can more easily work in your development environment.
+## MathJax Support
 
-### Configure Just the Docs
+Add `mathjax: true` to frontmatter of a page:
+```markdown
+---
+layout: default
+title: Home
+mathjax: true.
+---
+```
 
+## Configure Just the Docs
+
+Default directory name is changed to `content` from `docs` since repository itself is used as docs.
 - [See configuration options]({{ site.baseurl }}{% link content/configuration.md %})
 
----
-
-## About the project
-
-Just the Docs is &copy; 2017-{{ "now" | date: "%Y" }} by [Patrick Marsceill](http://patrickmarsceill.com).
-
-### License
-
-Just the Docs is distributed by an [MIT license](https://github.com/pmarsceill/just-the-docs/tree/master/LICENSE.txt).
-
-### Contributing
-
-When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. Read more about becoming a contributor in [our GitHub repo](https://github.com/pmarsceill/just-the-docs#contributing).
 
 
-### Code of Conduct
-
-Just the Docs is committed to fostering a welcoming community.
-
-[View our Code of Conduct](https://github.com/pmarsceill/just-the-docs/tree/master/CODE_OF_CONDUCT.md) on our GitHub repository.

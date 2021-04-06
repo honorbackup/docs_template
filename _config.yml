@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Title
+title: Docs_Template
 description: A Jekyll theme for documentation
 baseurl:  # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site, e.g. http://example.com
@@ -65,8 +65,8 @@ heading_anchors: true
 
 # Aux links for the upper right navigation
 aux_links:
-  "Title on GitHub":
-    - "//github.com/honorbackup"
+  "Repo on GitHub":
+    - "//github.com/honorbackup/docs_template"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true
